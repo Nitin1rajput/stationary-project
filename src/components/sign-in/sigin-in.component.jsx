@@ -26,15 +26,16 @@ class SignIn extends React.Component {
     this.setState({ [name]: value });
   };
   render() {
+    const { email,password } = this.state;
     return (
       <div className="sign-in">
         <h2>I already have an account </h2>
         <span>Sign in with your email and password</span>
-        <form onClick={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <FormInput
             name="email"
             label="Email"
-            value={this.state.email}
+            value={email}
             type="email"
             handleChange={this.handleChange}
             required
@@ -43,9 +44,10 @@ class SignIn extends React.Component {
           <FormInput
             name="password"
             label="Password"
-            value={this.state.password}
+            value={password}
             type="password"
             handleChange={this.handleChange}
+            autoComplete="on"
             required
           />
           <div className='buttons'>
